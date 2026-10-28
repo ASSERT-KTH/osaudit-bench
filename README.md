@@ -6,7 +6,8 @@ Every rule osaudit can emit has at least one operator (`--coverage` checks it ag
 
 ## Install
 
-    uv venv && uv pip install -e ../osaudit -e '.[dev]'
+    uv venv && uv pip install -e '.[dev]'     # osaudit from PyPI
+    uv pip install -e ../osaudit               # or a local checkout of osaudit
 
 ## Usage
 
