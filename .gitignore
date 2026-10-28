@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+plan-*.md
+dist/
+memory/
+# per-mutant details of private bases stay local
+runs/

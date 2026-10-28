@@ -1,0 +1,38 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "osaudit-bench"
+version = "0.1.0"
+description = "Defect-injection benchmark: recall and false alarms of osaudit, per rule"
+readme = "README.md"
+license = "MIT"
+authors = [{ name = "Martin Monperrus" }]
+requires-python = ">=3.13"
+dependencies = ["osaudit"]
+
+[project.optional-dependencies]
+dev = ["pytest", "pytest-cov", "mypy", "ruff"]
+
+[project.scripts]
+osaudit-bench = "osaudit_bench._cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["osaudit_bench"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.mypy]
+strict = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[[tool.mypy.overrides]]
+module = ["osaudit", "osaudit.*"]
+ignore_missing_imports = true
